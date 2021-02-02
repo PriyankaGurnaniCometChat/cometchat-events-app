@@ -1,6 +1,6 @@
 import React from 'react'
 import "../App.css"
-import { Col,Navbar, Card, Row} from 'react-bootstrap';
+import { Col,Navbar, Card, Row,Dropdown} from 'react-bootstrap';
 import styled from 'styled-components';
 import {CometChat} from '@cometchat-pro/chat'
 
@@ -60,7 +60,7 @@ export const Live_event = ({match}) => {
 
 const getEvent = async ()=>{
         
-        const response = await fetch(`http://localhost:5000/events/get-event/${match.params.id}`, {
+        const response = await fetch(`http://localhost:5000/events/event/${match.params.id}`, {
             method: 'GET',
             mode: 'cors',
             credentials: 'same-origin', 
@@ -168,11 +168,15 @@ React.useEffect(()=>{
             <Navbar.Brand href="#home">Live section</Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
-                <Navbar.Text>
-                    
-                     <h6 className="display-name"> {user[0]}</h6>
-                     <p onClick={logout}>logout</p>
-                </Navbar.Text>
+                <Dropdown>
+  <Dropdown.Toggle variant="success" id="dropdown-basic">
+  <h6 className="display-name"> {user[0]}</h6>
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item href="#"> <p onClick={logout}>logout</p></Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
             </Navbar.Collapse>
             </Navbar>
             

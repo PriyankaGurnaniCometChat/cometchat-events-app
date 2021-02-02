@@ -5,7 +5,7 @@ const cores = require("cors");
 const Event = require('../models/event')
 
 
-events.post('/create-event',(req,res) => {
+events.post('/event',(req,res) => {
     
     const data = {
         title : req.body.title,
@@ -20,7 +20,7 @@ events.post('/create-event',(req,res) => {
    
     })
 
-events.get('/get-events',(req,res) => {
+events.get('/events',(req,res) => {
     Event.findAll().then(faq => {
             res.send(faq)
         }).catch(err => {
@@ -28,7 +28,7 @@ events.get('/get-events',(req,res) => {
         })
     })
 
-events.get('/get-event/:id',(req,res) => {
+events.get('/event/:id',(req,res) => {
     
         Event.findOne({ where: { id: req.params.id } }).then(event=>{
             res.send(event)

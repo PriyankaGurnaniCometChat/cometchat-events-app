@@ -10,7 +10,7 @@ export const Programs = () => {
     const [events, setEvents] = React.useState([])
 
     const getEvent = async ()=>{
-        const response = await fetch("http://localhost:5000/events/get-events", {
+        const response = await fetch("http://localhost:5000/events/events", {
             method: 'GET',
             mode: 'cors',
             credentials: 'same-origin', 

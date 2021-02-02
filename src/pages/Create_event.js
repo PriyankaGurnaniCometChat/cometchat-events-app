@@ -25,7 +25,7 @@ const createEvent = async (e)=>{
     const data ={
         title,description,stream
     }
-    const response = await fetch("http://localhost:5000/events/create-event", {
+    const response = await fetch("http://localhost:5000/events/event", {
         method: 'POST',
         mode: 'cors',
         credentials: 'same-origin', 
